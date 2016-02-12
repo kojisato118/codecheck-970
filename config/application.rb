@@ -27,6 +27,10 @@ module ChallengeHerokuDeploy
     config.assets.precompile = []
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
-    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    if Rails.env == 'production'
+      config.autoload_paths += Dir[Rails.root.join('app/app', 'api', '*')]
+    else
+      config.autoload_paths += Dir[Rails.root.join('app/app', 'api', '*')]
+    end
   end
 end
