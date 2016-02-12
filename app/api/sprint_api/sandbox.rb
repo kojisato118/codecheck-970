@@ -1,5 +1,5 @@
 module SprintApi
-  class Projects < Grape::API
+  class Sandbox < Grape::API
     resource :ping do
       get do
         "PONG"
@@ -11,7 +11,7 @@ module SprintApi
       end
     end
     resource :badrequest do
-      get do
+      post do
         error!("BadRequest", 400)
       end
     end

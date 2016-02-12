@@ -4,5 +4,6 @@ module SprintApi
     format :json
 
     mount SprintApi::Projects
+    mount SprintApi::Sandbox
   end
 end

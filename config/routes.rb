@@ -4,12 +4,6 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
-  namespace :api do
-    get 'ping' => 'sandbox#ping'
-    get 'notfound' => 'sandbox#notfound'
-    post 'badrequest' => 'sandbox#badrequest'
-  end
-
   # Returns static files
   get "/:page" => "static#show"
 
