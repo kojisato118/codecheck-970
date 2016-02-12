@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount SprintApi::API => '/'
+
   root 'static#index'
 
   namespace :api do

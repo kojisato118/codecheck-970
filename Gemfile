@@ -18,3 +18,5 @@ end
 # Web Server recommended by Heroku
 # https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#config
 gem 'puma'
+
+gem 'grape'
