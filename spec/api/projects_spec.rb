@@ -18,11 +18,18 @@ describe "projects api", :type => :request do
         expect(body).to be_an_instance_of Array
       end
 
-      it "return all projects" do
+      it "return two projects in the first page" do
         get "/api/projects"
 
         body = JSON.parse(response.body)
         expect(body.count).to eq 2
+      end
+
+      it "return zero projects in the second page" do
+        get "/api/projects?page=2"
+
+        body = JSON.parse(response.body)
+        expect(body.count).to eq 0
       end
     end
   end

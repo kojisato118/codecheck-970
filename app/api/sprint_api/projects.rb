@@ -1,9 +1,12 @@
 module SprintApi
   class Projects < Grape::API
     resource :projects do
-      desc "return all projects"
+      params do
+        optional :page, type: Integer, default: 1 , desc: "page"
+      end
+      desc "return projects in the page"
       get do
-        Project.all
+        Project.find_projects(page: params[:page])
       end
 
       desc "create project"
@@ -21,7 +24,6 @@ module SprintApi
         else
           error!("500 internal server error", 500, [])
         end
-
       end
 
       desc "return project by id"

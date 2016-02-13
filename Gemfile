@@ -9,6 +9,15 @@ group :development do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do
+  gem 'minitest'
+  gem 'shoulda-matchers', '2.5.0'
+end
+
 group :production do
   gem 'thin'
   gem 'rails_12factor'
@@ -22,12 +31,4 @@ gem 'puma'
 gem 'grape'
 gem 'factory_girl'
 gem 'faker'
-
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
-end
-
-group :test do
-  gem 'minitest'
-  gem 'shoulda-matchers', '2.5.0'
-end
+gem 'kaminari'
