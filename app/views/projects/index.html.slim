@@ -1,3 +1,7 @@
 #masonry-container
-  - @images.each do |image|
-    .mas-box = image_tag(image)
+  - @projects.each do |project|
+    .mas-box
+      div style=("width:200px; background-color:orange")
+        h2 = project.title
+        p = project.description
+        = link_to_if(project.url.present?, project.url)
