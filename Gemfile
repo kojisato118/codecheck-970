@@ -26,3 +26,8 @@ gem 'faker'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
+
+group :test do
+  gem 'minitest'
+  gem 'shoulda-matchers', '2.5.0'
+end
