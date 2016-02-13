@@ -24,7 +24,7 @@ module ChallengeHerokuDeploy
     config.active_record.raise_in_transactional_callbacks = true
 
     # Disable pipeline
-    config.assets.precompile = []
+    #config.assets.precompile = []
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     if Rails.env == 'production'

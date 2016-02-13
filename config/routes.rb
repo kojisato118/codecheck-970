@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-
   mount SprintApi::API => '/'
 
-  root 'static#index'
+  root 'projects#index'
+  get 'projects/index' => 'projects#index'
+  get 'projects/show' => 'projects#show'
 
   # Returns static files
-  get "/:page" => "static#show"
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
