@@ -1,5 +1,8 @@
 namespace :qiita do
   task :fetch => :environment do
+    # TODO: cron
+    # TODO: 取得件数とループ
+    # TODO: 初回とバッチ時の処理の差
     con = Faraday::Connection.new(:url => 'http://qiita.com')
     response = con.get '/api/v2/users/kojisato118/items'
     body = JSON.parse(response.body)
