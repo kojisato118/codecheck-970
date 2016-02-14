@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount SprintApi::API => '/'
+  mount GrapeSwaggerRails::Engine => '/swagger'
 
   root 'projects#index'
   get 'projects/index' => 'projects#index'

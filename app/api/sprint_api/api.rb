@@ -1,3 +1,6 @@
+require 'grape'
+require 'grape-swagger'
+
 module SprintApi
   class API < Grape::API
     prefix "api"
@@ -5,5 +8,7 @@ module SprintApi
 
     mount SprintApi::Projects
     mount SprintApi::Sandbox
+
+    add_swagger_documentation
   end
 end
