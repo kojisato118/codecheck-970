@@ -7,6 +7,7 @@ module SprintApi
     format :json
 
     mount SprintApi::Projects
+    mount SprintApi::Qiitas
     mount SprintApi::Sandbox
 
     add_swagger_documentation
