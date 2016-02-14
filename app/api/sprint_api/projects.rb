@@ -1,4 +1,12 @@
 module SprintApi
+  class ProjectsEntity < Grape::Entity
+    expose :id
+    expose :title
+    expose :description
+    expose :url
+    expose :image
+  end
+
   class Projects < Grape::API
     resource :projects do
       params do
@@ -6,7 +14,8 @@ module SprintApi
       end
       desc "return projects in the page"
       get do
-        Project.find_projects(page: params[:page])
+        projects = Project.find_projects(page: params[:page])
+        present projects, with: ProjectsEntity
       end
 
       desc "create project"
@@ -39,7 +48,7 @@ module SprintApi
       get ":id" do
         project = Project.find_by(id: params[:id])
         if project.present?
-          return project
+          return present project, with: ProjectsEntity
         else
           error!("404 NotFound", 404, [])
         end

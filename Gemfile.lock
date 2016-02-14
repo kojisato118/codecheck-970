@@ -305,6 +305,7 @@ DEPENDENCIES
   factory_girl
   faker
   grape
+  grape-entity
   grape-swagger
   grape-swagger-rails
   jbuilder (~> 2.0)

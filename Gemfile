@@ -54,6 +54,7 @@ end
 gem 'puma'
 
 gem 'grape'
+gem 'grape-entity'
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
 gem 'factory_girl'
