@@ -48,6 +48,7 @@ function getItemElement(project) {
     imageDiv.className = "img";
     var img = document.createElement("img");
     img.setAttribute("src", project["image"]);
+    console.log(project["image"])
     imageDiv.appendChild(img);
     elem.appendChild(imageDiv);
 

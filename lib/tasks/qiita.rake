@@ -14,9 +14,11 @@ namespace :qiita do
       qiita_item.description = item["rendered_body"]
       qiita_item.url = item["url"]
 
-      image_match = qiita_item.description.match(/<img.+src=(.*(png|jpg|jpeg|gif)").*>/)
+      image_match = qiita_item.description.match(/<img.+src="(.*(png|jpg|jpeg|gif))".*>/)
       if image_match.present?
         qiita_item.image = image_match[1]
+      else
+        qiita_item.image = "/images/medium/no_image.png"
       end
 
       unless qiita_item.save
