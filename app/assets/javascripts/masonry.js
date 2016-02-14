@@ -40,11 +40,19 @@ function getItemElement(project) {
     var elem = document.createElement("div");
     elem.className = "grid-item";
 
-    var title = document.createElement("h2");
+    var title = document.createElement("h3");
     title.innerHTML = project["title"];
-    elem.appendChild(title)
+    elem.appendChild(title);
 
-    var desc = document.createElement("p")
+    var imageDiv = document.createElement("div");
+    imageDiv.className = "img";
+    var img = document.createElement("img");
+    img.setAttribute("src", project["image"]);
+    imageDiv.appendChild(img);
+    elem.appendChild(imageDiv);
+
+    var desc = document.createElement("div");
+    desc.className = "description"
     desc.innerHTML = project["description"];
     elem.appendChild(desc)
 
