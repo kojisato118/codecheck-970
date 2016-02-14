@@ -90,7 +90,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
-  config.before do
-    FactoryGirl.reload
-  end
+
 end
