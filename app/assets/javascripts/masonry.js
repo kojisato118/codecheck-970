@@ -7,7 +7,7 @@ $(function(){
 
 function reload(page){
     $.ajax({
-        url: "api/projects/",
+        url: "api/contents/",
         type: "GET",
         data: {page : page},
         dataType: "json",
