@@ -19,10 +19,11 @@ module SprintApi
         # バッチ処理で定期的にjsonを作ってしまうか
         qiitas = QiitaItem.find_qiita_items(page: params[:page])
         projects = Project.find_projects(page: params[:page])
-        contents = qiitas + projects
+        lisas = Lisa.find_lisas(page: params[:page])
+        contents = qiitas + projects + lisas
 
         contents.sort! do |a, b|
-          a.created_at > b.created_at ? 1 : -1
+          a.created_at > b.created_at ? -1 : 1
         end
 
         present contents, with: ContentsEntity
