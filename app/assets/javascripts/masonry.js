@@ -26,12 +26,14 @@ function setProjects(projects){
     $.each(projects, function() {
         insert.push(getItemElement(this));
     });
-    var $insert = $(insert);
-    $('#grid').append($insert).masonry('appended', $insert);
+    var $insert = $(insert).css({ opacity: 0 });
+    $insert.imagesLoaded(function() {
+        $insert.animate({ opacity: 1 });
+        $('#grid').append($insert).masonry('appended', $insert);
+        setMasonry();
 
-    setMasonry();
-
-    animateGridItems(page);
+        animateGridItems(page);
+    });
 }
 
 // 本当はRailsにHTML生成は任せたいけど、js to railsでいい感じにデータ渡す方法がわからなかった
@@ -76,7 +78,9 @@ function getItemElement(project) {
 }
 
 function setMasonry() {
-    $('#grid').masonry({
+    var $container = $('#grid');
+
+    $container.masonry({
         itemSelector: '.grid-item',
         gutterWidth: 0,
         isAnimated: true,
