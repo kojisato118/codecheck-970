@@ -48,19 +48,30 @@ function getItemElement(project) {
     imageDiv.className = "img";
     var img = document.createElement("img");
     img.setAttribute("src", project["image"]);
-    console.log(project["image"])
+    console.log(project["image"]);
     imageDiv.appendChild(img);
     elem.appendChild(imageDiv);
 
     var desc = document.createElement("div");
-    desc.className = "description"
+    desc.className = "description";
     desc.innerHTML = project["description"];
-    elem.appendChild(desc)
+    elem.appendChild(desc);
 
-    //if(this["url"] != "") {
-    //    var url = $('<a>').attr(this["url"]);
-    //    insert.append(url);
-    //}
+    if(project["url"] != null) {
+        var morediv = document.createElement("div");
+        morediv.className = "more";
+
+        var url = document.createElement("a");
+        url.className = "button";
+        url.href = project["url"];
+        var text = document.createTextNode("詳細を読む");
+        url.appendChild(text);
+
+        morediv.appendChild(url);
+
+        elem.appendChild(morediv);
+    }
+
     return elem;
 }
 
