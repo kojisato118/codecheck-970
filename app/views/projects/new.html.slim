@@ -1,4 +1,8 @@
-= form_tag("/projects/create", method: "post", :multipart => true) do
+/ これだとapiのページに飛んでしまう
+  ：remote => trueにしてるのに・・・
+  controllerを経由してみたけれど画像がうまくuploadできなくなった。(すでにcontrollerにあげるときにhttp的にアップロードしているようなものなので)
+  api使うならjsからがいいのだろうけど、一旦これで
+= form_tag("/api/projects", method: "post", :remote => true, :multipart => true) do
   div
     = label_tag(:title, "Title:  ")
     br
