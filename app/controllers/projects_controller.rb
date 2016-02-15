@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
     # TODO: ここだけじゃなくurlとか見たいなlocalhostとproductionとかでわけたい定数の設定
     con = Faraday::Connection.new(:url => 'http://sprint-koji.herokuapp.com/')
     response = con.post '/api/projects', params
-    binding.pry
     # TODO: エラーや成功についてアラートする
     if response.status == 201
       redirect_to "/"
