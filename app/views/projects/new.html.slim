@@ -1,0 +1,16 @@
+= form_tag("/projects/create", method: "post", :multipart => true) do
+  div
+    = label_tag(:title, "Title:  ")
+    br
+    = text_field_tag(:title, nil, {style: "width: 600px;"})
+  div
+    = label_tag(:description, "Description:  ")
+    br
+    = text_area_tag(:description, nil, {style: "width: 600px; height: 400px"})
+  div
+    = label_tag(:image, "画像をアップロード")
+    br
+    = file_field_tag 'image'
+  br
+  = submit_tag("投稿")
+end

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'projects#index'
   get 'projects/index' => 'projects#index'
   get 'projects/show' => 'projects#show'
+  get 'projects/new' => 'projects#new'
+  post 'projects/create' => 'projects#create'
 
   # Returns static files
 

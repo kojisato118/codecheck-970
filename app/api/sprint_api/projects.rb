@@ -23,7 +23,7 @@ module SprintApi
         requires :title, type: String, desc: "Title"
         requires :description, type: String, desc: "description"
         optional :url, type: String, desc: "url"
-        optional :image, type: Rack::Multipart::UploadedFile, desc: "uploaded image file"
+        optional :image, type: ActionDispatch::Http::UploadedFile, desc: "uploaded image file"
       end
       post do
         project = Project.new(title: params[:title],
