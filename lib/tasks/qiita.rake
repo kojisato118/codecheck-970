@@ -13,6 +13,7 @@ namespace :qiita do
       qiita_item.title = item["title"]
       qiita_item.description = item["rendered_body"]
       qiita_item.url = item["url"]
+      qiita_item.created_at = Time.zone.parse(item["created_at"])
 
       image_match = qiita_item.description.match(/<img.+src="(.*(png|jpg|jpeg|gif))".*>/)
       if image_match.present?

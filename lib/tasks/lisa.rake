@@ -14,6 +14,7 @@ namespace :lisa do
       lisa.title = item["title"]
       lisa.description = item["article"]
       lisa.url = lisa_url + item["link"]
+      lisa.created_at = Time.zone.parse(item["date"])
 
       if item["images"]["image"].present?
         # ぱっと見なかったからどうなるかはわかんない
