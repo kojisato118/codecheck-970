@@ -9,6 +9,7 @@ module SprintApi
     mount SprintApi::Projects
     mount SprintApi::Qiitas
     mount SprintApi::Contents
+    mount SprintApi::Lisas
     mount SprintApi::Sandbox
 
     add_swagger_documentation
