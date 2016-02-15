@@ -67,7 +67,7 @@ function getItemElement(project) {
 function setMasonry() {
     $('#grid').masonry({
         itemSelector: '.grid-item',
-        gutterWidth: 5,
+        gutterWidth: 0,
         isAnimated: true,
         animationOptions: {
             duration: 500,
