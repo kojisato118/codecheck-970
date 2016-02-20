@@ -7,7 +7,14 @@ class QiitaItem < ActiveRecord::Base
   acts_as_taggable_on :labels
   acts_as_taggable
 
-  def self.find_qiita_items(page: 1)
-    QiitaItem.page(page).per(10)
+  # TODO: 何かいい感じのproject定数
+  LOWER_LIMIT_OF_PER = 3
+
+  def self.find_qiita_items(page: 1, per: 5)
+    if per < LOWER_LIMIT_OF_PER
+      per = LOWER_LIMIT_OF_PER
+    end
+
+    QiitaItem.page(page).per(per)
   end
 end

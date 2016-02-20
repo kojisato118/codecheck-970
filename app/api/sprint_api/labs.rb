@@ -12,10 +12,11 @@ module SprintApi
     resource :labs do
       params do
         optional :page, type: Integer, default: 1 , desc: "page"
+        optional :per, type: Integer, default: 5 , desc: "per page"
       end
       desc "return labs in the page"
       get do
-        labs = Lab.find_labs(page: params[:page])
+        labs = Lab.find_labs(page: params[:page], per: params[:per])
         present labs, with: LabsEntity
       end
 

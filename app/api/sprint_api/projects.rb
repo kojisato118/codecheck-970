@@ -12,10 +12,11 @@ module SprintApi
     resource :projects do
       params do
         optional :page, type: Integer, default: 1 , desc: "page"
+        optional :per, type: Integer, default: 16 , desc: "per page"
       end
       desc "return projects in the page"
       get do
-        projects = Project.find_projects(page: params[:page])
+        projects = Project.find_projects(page: params[:page], per: params[:per])
         present projects, with: ProjectsEntity
       end
 

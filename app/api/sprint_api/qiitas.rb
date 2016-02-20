@@ -13,10 +13,11 @@ module SprintApi
     resource :qiitas do
       params do
         optional :page, type: Integer, default: 1 , desc: "page"
+        optional :per, type: Integer, default: 16 , desc: "per page"
       end
       desc "return qiitas in the page"
       get do
-        qiitas = QiitaItem.find_qiita_items(page: params[:page])
+        qiitas = QiitaItem.find_qiita_items(page: params[:page], per: params[:per])
         present qiitas, with: QiitasEntity
       end
 

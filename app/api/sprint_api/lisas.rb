@@ -13,10 +13,11 @@ module SprintApi
     resource :lisas do
       params do
         optional :page, type: Integer, default: 1 , desc: "page"
+        optional :per, type: Integer, default: 4 , desc: "per page"
       end
       desc "return lisas in the page"
       get do
-        lisas = Lisa.find_lisas(page: params[:page])
+        lisas = Lisa.find_lisas(page: params[:page], per: params[:per])
         present lisas, with: LisasEntity
       end
 
