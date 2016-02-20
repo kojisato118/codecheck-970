@@ -21,7 +21,8 @@ module SprintApi
         qiitas = QiitaItem.find_qiita_items(page: params[:page])
         projects = Project.find_projects(page: params[:page])
         lisas = Lisa.find_lisas(page: params[:page])
-        contents = qiitas + projects + lisas
+        labs = Lab.find_labs(page: params[:page])
+        contents = qiitas + projects + lisas + labs
 
         contents.sort! do |a, b|
           a.created_at > b.created_at ? -1 : 1
