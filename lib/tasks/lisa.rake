@@ -23,6 +23,7 @@ namespace :lisa do
         lisa.image = "http://www.lxixsxa.com/img/top/bg/info.jpg"
       end
 
+      lisa.tag_list.add("lisa")
       unless lisa.save
         # TODO エラー処理
       end
