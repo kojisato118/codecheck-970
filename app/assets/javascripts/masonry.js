@@ -46,6 +46,14 @@ function getItemElement(project) {
     title.innerHTML = project["title"];
     elem.appendChild(title);
 
+    var tagDiv = document.createElement("div");
+    tagDiv.className = "tag"
+    $.each(project["tag_list"], function() {
+        var tag = document.createElement("span");
+        tag.innerHTML = this;
+        tagDiv.appendChild(tag);
+    });
+    elem.appendChild(tagDiv);
 
     var imageDiv = document.createElement("div");
     imageDiv.className = "img";
