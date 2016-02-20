@@ -22,6 +22,8 @@ namespace :qiita do
         qiita_item.image = "/images/medium/no_image.png"
       end
 
+      qiita_item.tag_list.add("qiita")
+
       unless qiita_item.save
         # TODO: エラー処理
       end
