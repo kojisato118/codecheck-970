@@ -46,6 +46,7 @@ function getItemElement(project) {
     title.innerHTML = project["title"];
     elem.appendChild(title);
 
+
     var imageDiv = document.createElement("div");
     imageDiv.className = "img";
     var img = document.createElement("img");

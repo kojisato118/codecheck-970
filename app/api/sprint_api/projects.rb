@@ -5,6 +5,7 @@ module SprintApi
     expose :description
     expose :url
     expose :image
+    expose :tag_list
   end
 
   class Projects < Grape::API
