@@ -8,6 +8,8 @@ describe "contens api", :type => :request do
     let!(:project2){FG.create(:project)}
     let!(:lisa1){FG.create(:lisa)}
     let!(:lisa2){FG.create(:lisa)}
+    let!(:lab1){FG.create(:lab)}
+    let!(:lab2){FG.create(:lab)}
     context "When Valid" do
       it "return 200 OK" do
         get "/api/contents"
@@ -26,7 +28,7 @@ describe "contens api", :type => :request do
         get "/api/contents"
 
         body = JSON.parse(response.body)
-        expect(body.count).to eq 6
+        expect(body.count).to eq 8
       end
 
       it "return zero qiitas in the second page" do
