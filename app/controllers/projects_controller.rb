@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :sign_in_required, only: [:new]
   def index
 
   end
