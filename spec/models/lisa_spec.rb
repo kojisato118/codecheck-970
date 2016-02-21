@@ -19,6 +19,11 @@ RSpec.describe Lisa, type: :model do
     context "format" do
       it { is_expected.to allow_value("https://sprint.code-check.io/").for(:url) }
       it { is_expected.not_to allow_value("javascript:alert('XSS');//http://bitarts.jp/").for(:url) }
+
+      it { is_expected.to allow_value("http://www.lxixsxa.com/img/top/bg/info.jpg").for(:image) }
+      it { is_expected.to allow_value("/images/medium/no_image.png").for(:image) }
+      it { is_expected.not_to allow_value("http://www.lxixsxa.com").for(:image) }
+      it { is_expected.not_to allow_value("/images/medium/test.png").for(:image) }
     end
   end
 

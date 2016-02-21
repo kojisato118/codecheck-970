@@ -18,6 +18,11 @@ RSpec.describe QiitaItem, type: :model do
     context "format" do
       it { is_expected.to allow_value("https://sprint.code-check.io/").for(:url) }
       it { is_expected.not_to allow_value("javascript:alert('XSS');//http://bitarts.jp/").for(:url) }
+
+      it { is_expected.to allow_value("http://cdn.qiita.com/assets/siteid-reverse-04252f9a0a01f3a6d03eefefb2a30602e854bf7a4d237969a35600c1bbc3f783.png").for(:image) }
+      it { is_expected.to allow_value("/images/medium/no_image.png").for(:image) }
+      it { is_expected.not_to allow_value("http://qiita.com/").for(:image) }
+      it { is_expected.not_to allow_value("/images/medium/test.png").for(:image) }
     end
   end
 
