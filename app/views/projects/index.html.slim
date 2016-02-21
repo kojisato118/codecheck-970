@@ -1,6 +1,15 @@
 = javascript_include_tag 'masonry', media: 'all'
-#title
-  h2 ポートフォリオ
+#header
+  .container
+    span.title ポートフォリオ
+    div.link
+     = link_to "API ドキュメント", "/swagger"
+     - if current_user.present?
+       = link_to "投稿", "/projects/new"
+       = link_to "管理画面", "/admin"
+       = link_to "ログアウト", "/users/sign_out"
+     - else
+       = link_to "ログイン", "/users/sign_in"
 #grid
 h2#more もっと見る
 
