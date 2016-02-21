@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  # deviseの設定
+  # #editと#updateのみ許可
+  devise_for :users
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   mount SprintApi::API => '/'
   mount GrapeSwaggerRails::Engine => '/swagger'
 
