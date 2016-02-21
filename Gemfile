@@ -70,3 +70,4 @@ gem 'acts-as-taggable-on'
 gem 'nokogiri'
 gem 'anemone'
 gem 'devise'
+gem 'whenever', :require => false

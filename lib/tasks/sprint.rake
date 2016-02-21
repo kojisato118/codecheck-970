@@ -6,4 +6,10 @@ namespace :sprint do
     Rake::Task["qiita:fetch"].execute
     Rake::Task["scraping:fetch"].execute
   end
+
+  task :fetch do
+    Rake::Task["lisa:fetch"].execute
+    Rake::Task["qiita:fetch"].execute
+    Rake::Task["scraping:fetch"].execute
+  end
 end
