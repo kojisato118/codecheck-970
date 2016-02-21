@@ -28,9 +28,10 @@ module SprintApi
         optional :image, type: ActionDispatch::Http::UploadedFile, desc: "uploaded image file"
       end
       post do
+        url = params[:url].present? ? params[:url] : ""
         project = Project.new(title: params[:title],
                               description: params[:description],
-                              url: params[:url])
+                              url: url)
         if(params[:image].present?)
           image = ActionDispatch::Http::UploadedFile.new(params[:image])
           project.image = image

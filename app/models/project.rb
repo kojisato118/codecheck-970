@@ -1,7 +1,9 @@
 class Project < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
-
+  # urlはチャレンジ:[基本機能編]ポートフォリオアプリを実装しよう
+  # の内容的にpresence: false & formatに空文字をOKとする
+  validates :url, presence: false, format: {with: /\A#{URI::regexp(%w(http https))}\z/, unless: "url==\"\""}
   acts_as_taggable_on :labels
   acts_as_taggable
 

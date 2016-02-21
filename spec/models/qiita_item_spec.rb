@@ -14,6 +14,11 @@ RSpec.describe QiitaItem, type: :model do
     context "uniquness" do
       it { is_expected.to validate_uniqueness_of(:qiita_item_id) }
     end
+
+    context "format" do
+      it { is_expected.to allow_value("https://sprint.code-check.io/").for(:url) }
+      it { is_expected.not_to allow_value("javascript:alert('XSS');//http://bitarts.jp/").for(:url) }
+    end
   end
 
   # check relations such as has_many

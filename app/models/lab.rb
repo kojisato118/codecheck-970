@@ -1,7 +1,7 @@
 class Lab < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
-  validates :url, presence: true
+  validates :url, presence: true, format: /\A#{URI::regexp(%w(http https))}\z/
   validates :image, presence: true
 
   acts_as_taggable_on :labels

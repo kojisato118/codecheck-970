@@ -15,6 +15,11 @@ RSpec.describe Lisa, type: :model do
       let!(:lisa){FG.build(:lisa).save!(validate: false)}
       it { is_expected.to validate_uniqueness_of(:lisa_id) }
     end
+
+    context "format" do
+      it { is_expected.to allow_value("https://sprint.code-check.io/").for(:url) }
+      it { is_expected.not_to allow_value("javascript:alert('XSS');//http://bitarts.jp/").for(:url) }
+    end
   end
 
   # check relations such as has_many
