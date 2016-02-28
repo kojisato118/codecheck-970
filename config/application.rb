@@ -28,10 +28,22 @@ module ChallengeHerokuDeploy
     #config.assets.precompile = []
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+
+    # herokuとローカルの切り分け。Settingとかでやりたい
     if Rails.env == 'production'
-      config.autoload_paths += Dir[Rails.root.join('app/app', 'api', '*')]
+      autoload_paths = Dir[Rails.root.join('app/app', 'api', '*')]
+      origins = 'https://sprint-react.herokuapp.com'
     else
-      config.autoload_paths += Dir[Rails.root.join('app/app', 'api', '*')]
+      autoload_paths = Dir[Rails.root.join('app/app', 'api', '*')]
+      origins = 'http://localhost:5000/'
+    end
+    config.autoload_paths += autoload_paths
+
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+      allow do
+        origins origins
+        resource '*', :headers => :any, :methods => [:get, :post, :options, :patch, :delete]
+      end
     end
   end
 end
